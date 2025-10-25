@@ -8,3 +8,4 @@ def count_days(year, month, whichday):
     # Count how many weeks have the specified weekday (non-zero value in the correct position).
     count = sum(1 for week in cal if week[whichday] != 0)
     return count
+c
