@@ -81,7 +81,9 @@ def test_link_extraction():
     assert any('page1' in link for link in links)
     assert any('page2' in link for link in links)
     assert any('page3' in link for link in links)
-    assert not any('other.com' in link for link in links)
+    # Verify external domain is excluded (security feature)
+    external_domain = 'other.com'
+    assert not any(external_domain in link for link in links)
     
     print("✓ Link extraction tests passed")
 
