@@ -14,6 +14,10 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import time
 
+# Constants for output formatting
+MAX_SAMPLE_PARAGRAPHS = 3
+MAX_PARAGRAPH_LENGTH = 200
+
 
 class WebCrawler:
     """A simple web crawler for scraping data from websites."""
@@ -166,9 +170,9 @@ class WebCrawler:
                 
                 if data['paragraphs']:
                     f.write("Sample Paragraphs:\n")
-                    for para in data['paragraphs'][:3]:
+                    for para in data['paragraphs'][:MAX_SAMPLE_PARAGRAPHS]:
                         if para:
-                            f.write(f"  {para[:200]}...\n")
+                            f.write(f"  {para[:MAX_PARAGRAPH_LENGTH]}...\n")
                     f.write("\n")
                 
                 f.write(f"Total links found: {data['links_count']}\n")
